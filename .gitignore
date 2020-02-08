@@ -2,3 +2,6 @@
 venv/
 venv/*
 /ygy
+all_data.csv
+all_data_T.csv
+Methylation.csv

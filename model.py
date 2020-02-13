@@ -48,7 +48,7 @@ def run(total_data,drug_num,drug_name_list):
     f1_final= f1_score(list(label), predict,average='macro') 
     auc=accuracy_score(list(label), predict) 
  
-    print("drug_num: {} train_f1_score:{}\n {} final_f1_score:{}\n auc:{}".format(drug_num, rfc.best_score_,f1_final,auc))
+    print("drug_num: {} train_f1_score:{} final_f1_score:{} auc:{}".format(drug_num, rfc.best_score_,f1_final,auc))
 
     # 列出重要基因
     gene_name = list(total_data)
@@ -80,7 +80,7 @@ def run(total_data,drug_num,drug_name_list):
         '-optim parameters:\n']+ ['---{} : {}\n'.format(para,val) for para,val in list(best_parameters.items()) ] + ['-important gene:\n'] + ['---gene[{}]:{} = {}\n'.format(index,gene_name[index], importance) for index, importance in new_dict.items()] + ['\n']
     
 
-    with open("report_balanced.txt","a",encoding='utf-8') as f:
+    with open("report.txt","a",encoding='utf-8') as f:
         f.writelines(result)   
 
     
